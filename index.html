@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<!--Name:  John Nguyen
+	Date: June 2
+	Course: CMP621A
+	Assignment:  JavaScript Assignment #1 -->
+<meta charset=utf-8 />
+
+<style >
+  .instructions { color: blue; }
+  </style>
+</head>
+
+<body>
+<!-- ----------------------------------------1st Question -------------------------------------------
+Question 1:  The user will enter two numbers and click a button to show the result of the indicated 
+calculation.  (Hint remember parseInt().)  ------------------------------------------------------ -->
+
+<script>
+	var num;
+	var num1;
+	var num2;
+	
+	function add() {
+		num1 = document.getElementById('Num1Box').value;
+		num2 = document.getElementById('Num2Box').value;
+		num = parseInt(num1) + parseInt(num2);
+		document.getElementById('total').innerHTML = num;	
+	}
+	function subtract() {
+		num1 = document.getElementById('Num1Box').value;
+		num2 = document.getElementById('Num2Box').value;
+		num = parseInt(num1) - parseInt(num2);
+		document.getElementById('total').innerHTML = num;
+	}
+	function multiply() {
+		num1 = document.getElementById('Num1Box').value;
+		num2 = document.getElementById('Num2Box').value;
+		num = parseInt(num1) * parseInt(num2);
+		document.getElementById('total').innerHTML = num;
+	}
+	function divide() {
+		num1 = document.getElementById('Num1Box').value;
+		num2 = document.getElementById('Num2Box').value;
+		num = parseInt(num1) / parseInt(num2);
+		document.getElementById('total').innerHTML = num;
+	}
+</script>
+
+
+<!-- Keep the "body" of Question 1 beneath here ---------------------------------------- -->
+	<h1>Question 1</h1>
+  <p class = "instructions">
+    ----------------------------------------1st Question ------------------------------------------- <br>
+    Question 1:  The user will enter two numbers and click a button to show the result of the indicated  <br>
+    calculation. You should have a button for each: ADD, SUBTRACT, MULTIPLY and DIVIDE (Hint remember parseInt().)  ------------------------------------------------------ </p>
+	<br>
+	1st Number: <input type="text" id="Num1Box" value = ''>
+	<br>
+	2nd Number: <input type="text" id="Num2Box" value = ''>
+	<br>
+	<button type = 'button' name = 'button' onclick = 'add()'>Add</button>
+	<button type = 'button' name = 'button' onclick = 'subtract()'>Subtract</button>
+	<button type = 'button' name = 'button' onclick = 'multiply()'>Multiply</button>
+	<button type = 'button' name = 'button' onclick = 'divide()'>Divide</button>
+	<br>
+	Your number is: <span id = 'total'> </span>
+	<br>
+
+
+
+
+<!-- ----------------------------------------2nd Question -------------------------------------------
+Question 2:  The use will enter two numbers and click a button show state which number is the largest. -->
+
+<script>
+	var num3;
+	var num4;
+	var maxNum;
+	
+	function findMax() {
+		num3 = document.getElementById('Num3Box').value;
+		num4 = document.getElementById('Num4Box').value;
+		if (parseInt(num3) < parseInt(num4)) {
+			maxNum = num4;
+		} if (parseInt(num3) > parseInt(num4)) {
+			maxNum = num3;
+		} else {
+			maxNum = 'Equal';
+		}
+		document.getElementById('maxNum').innerHTML = maxNum;
+	}
+</script>
+
+
+<!-- Keep the "body" of Question 2 beneath here ------------------------------------ -->
+	<h1>Question 2</h1>
+  <p class = "instructions">
+    ----------------------------------------2nd Question ------------------------------------------- <br>
+Question 2:  The use will enter two numbers and click a button show state which number is the largest. <br>
+----------------------------------------                 ------------------------------------------- <br> </p>
+	<br>
+
+	1st Number: <input type="text" id="Num3Box" value = ''>
+	<br>
+	2nd Number: <input type="text" id="Num4Box" value = ''>
+	<br>
+	<button type = 'button' name = 'button' onclick = 'findMax()'>Largest number</button>
+	<br>
+	Your largest number: <span id = 'maxNum'> </span>
+	<br>
+
+<!-- ----------------------------------------3rd Question -------------------------------------------
+Question 3:  Currently the font is normal, 10 pt and the background color is yellow.  Clicking the 
+button will change the font to italicised, xx-large and with a red background. If the button is 
+clicked once more it will return to it's original state (yellow background, etc.). -->
+
+<script>
+	function toRed() {
+		document.getElementById('Q3').style.backgroundColor = 'Red';
+		document.getElementById('Q3').style.fontSize = 'xx-large';
+		document.getElementById('change').removeEventListener('click', toRed);
+		document.getElementById('change').addEventListener('click', toYellow);
+	}
+	function toYellow() {
+		document.getElementById('Q3').style.backgroundColor = 'yellow';
+		document.getElementById('Q3').style.fontSize = '8pt';
+		document.getElementById('change').removeEventListener('click', toYellow);
+		document.getElementById('change').addEventListener('click', toRed);
+	}
+	
+</script>
+
+
+<!-- Keep the "body" of Question 3 beneath here ------------------------------------ -->
+	<h1>Question 3</h1>
+  <p class = "instructions"> ----------------------------------------3rd Question -------------------------------------------<br>
+  Question 3:  Currently the font is normal, 10 pt and the background color is yellow.  <br> 
+  Clicking a button will change the font to italicised, xx-large and with a red background. <br>
+    If the button is clicked once more it will return to it's original state (yellow background, etc.). </p>
+	<br>
+	<button id = 'change' type = 'button' name = 'button'>Change text</button>
+	<br> <br>
+	<div id="Q3" style="font-size:8pt; background-color:yellow; " >Here is some text.</div>
+
+	<script>
+		document.getElementById('change').addEventListener('click', toRed);
+	</script>
+</body>
+
+</html>
